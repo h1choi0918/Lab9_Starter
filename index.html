@@ -102,9 +102,50 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
-    for (let i = 0; i < errorBtns.length; i++) {
-      
-    }
+    errorBtns[0].addEventListener('click', e => { //Console Log
+      console.log();
+    });
+    errorBtns[1].addEventListener('click', e => { //Console Error
+      console.error("Console Error Demo");
+    });
+    errorBtns[2].addEventListener('click', e => { //Console Count
+      console.count("Count Button");
+    });
+    errorBtns[3].addEventListener('click', e => { //Console Warn
+      console.warn("Console Warn Button");
+    });
+    errorBtns[4].addEventListener('click', e => { //Console Assert
+      console.assert(2 == 3);
+    });
+    errorBtns[5].addEventListener('click', e => { //Console Clear
+      console.clear();
+    });
+    errorBtns[6].addEventListener('click', e => { //Console Dir
+      console.dir(errorBtns[6]);
+    });
+    errorBtns[7].addEventListener('click', e => { //Console dirxml
+      console.dirxml(errorBtns[7]);
+    });
+    errorBtns[8].addEventListener('click', e => { //Console Group Start
+      console.group();
+    });
+    errorBtns[9].addEventListener('click', e => { //Console Group End
+      console.groupEnd();
+    });
+    errorBtns[10].addEventListener('click', e => { //Console Table
+      console.table([errorBtns]);
+    });
+    errorBtns[11].addEventListener('click', e => { //Start Timer
+      console.time();
+    });
+    errorBtns[12].addEventListener('click', e => { //End Timer
+      console.timeEnd();
+    });
+    errorBtns[13].addEventListener('click', e => { //Console Trace
+      console.trace();
+    });
+    errorBtns[14].addEventListener('click', e => { //Trigger a Global Error
+    });
   </script>
 </body>
 
