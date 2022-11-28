@@ -103,10 +103,26 @@
     // Start your code here
     // You may move this JS to another file if you wish
     errorBtns[0].addEventListener('click', e => { //Console Log
-      console.log();
+      let output = document.querySelector('output').innerHTML;
+      let firstNum = document.querySelector('#first-num').value;
+      let secondNum = document.querySelector('#second-num').value;
+      let operator = document.querySelector('#operator').value;
+      if (firstNum != "" && secondNum != "") {
+        console.log(firstNum+operator+secondNum+"="+output);
+      }
+      else {
+        console.log("Please enter inputs");
+      }
     });
     errorBtns[1].addEventListener('click', e => { //Console Error
-      console.error("Console Error Demo");
+      try {
+        if (isNaN(document.querySelector('#first-num').value) || (isNaN(document.querySelector('#second-num').value))) {
+          throw new TypeError("Input is not a number!");
+        }
+      }
+      catch (error) {
+        console.error(error.message);
+      }
     });
     errorBtns[2].addEventListener('click', e => { //Console Count
       console.count("Count Button");
@@ -115,7 +131,9 @@
       console.warn("Console Warn Button");
     });
     errorBtns[4].addEventListener('click', e => { //Console Assert
-      console.assert(2 == 3);
+      const errorMsg = "The number does not equal 3";
+      let number = 2;
+      console.assert(number == 3, '%o', {number, errorMsg});
     });
     errorBtns[5].addEventListener('click', e => { //Console Clear
       console.clear();
@@ -133,7 +151,11 @@
       console.groupEnd();
     });
     errorBtns[10].addEventListener('click', e => { //Console Table
-      console.table([errorBtns]);
+      let output = document.querySelector('output');
+      let firstNum = document.querySelector('#first-num').value;
+      let secondNum = document.querySelector('#second-num').value;
+      let operator = document.querySelector('#operator').value;
+      console.table([firstNum, operator, secondNum, output.innerHTML]);
     });
     errorBtns[11].addEventListener('click', e => { //Start Timer
       console.time();
@@ -142,9 +164,21 @@
       console.timeEnd();
     });
     errorBtns[13].addEventListener('click', e => { //Console Trace
-      console.trace();
+      function deep() {
+        deeper();
+      }
+      function deeper() {
+        deepest();
+      }
+      function deepest() {
+        console.trace();
+      }
+      deep();
     });
     errorBtns[14].addEventListener('click', e => { //Trigger a Global Error
+      window.onerror = function() {
+        console.log("Error haas been caught");
+      }
     });
   </script>
 </body>
